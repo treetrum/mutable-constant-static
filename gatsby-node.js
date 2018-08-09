@@ -1,47 +1,7 @@
-const fetch = require('node-fetch');
-const crypto = require('crypto');
 const path = require('path');
 
 const utils = require('./src/utils/index.js');
 const { createPostSlug } = utils;
-
-const createWordpressNode = post => {
-    const { id, title, content, date, modified, slug, status, tags } = post;
-    return {
-        // Required fields.
-        id: `${id}`,
-        parent: null, // or null if it's a source node without a parent
-        children: [],
-        internal: {
-            type: 'wordpressPost',
-            contentDigest: crypto
-                .createHash('sha256')
-                .update(post.content.rendered)
-                .digest('hex')
-        },
-        // Extra fields
-        title: title.rendered,
-        content: content.rendered,
-        date,
-        modified,
-        slug,
-        status,
-        tags
-    };
-};
-
-exports.sourceNodes = async ({ boundActionCreators }) => {
-    const { createNode } = boundActionCreators;
-
-    // Create wordpress post nodes
-    const wordpressPosts = await fetch(
-        'http://mutableconstant.com/wp-json/wp/v2/posts'
-    ).then(d => d.json());
-    wordpressPosts.forEach(post => createNode(createWordpressNode(post)));
-
-    // We're done, return.
-    return;
-};
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
     const { createPage } = boundActionCreators;
@@ -80,5 +40,4 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         });
     });
 
-    console.log({ createPage });
 };

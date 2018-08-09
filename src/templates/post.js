@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import DateLine from '../components/dateline';
 
 export default function({ data }) {
-    console.log(data);
     const post = data.markdownRemark;
     const { title, date } = post.frontmatter;
     const { html } = post;

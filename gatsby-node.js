@@ -80,5 +80,4 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         });
     });
 
-    console.log({ createPage });
 };

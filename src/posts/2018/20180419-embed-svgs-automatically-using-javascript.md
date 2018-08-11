@@ -20,19 +20,19 @@ Original:
 ```js
 (() => {
 
-    let parser = new DOMParser();
-    let svgTags = document.querySelectorAll('img[data-svg-inline]');
+    const parser = new DOMParser();
+    const svgTags = document.querySelectorAll('img[data-svg-inline]');
 
-    svgTags.forEach(svgTag => {
+    svgTags.forEach((svgTag) => {
 
-        let imageURL = svgTag.src;
-        let imageParent = svgTag.parentNode;
+        const imageURL = svgTag.src;
+        const imageParent = svgTag.parentNode;
 
         fetch(imageURL)
             .then(response => response.text())
-            .then(svgData => {
-                var svgDocument = parser.parseFromString(svgData, 'image/svg+xml');
-                let svgElement = svgDocument.documentElement;
+            .then((svgData) => {
+                const svgDocument = parser.parseFromString(svgData, 'image/svg+xml');
+                const svgElement = svgDocument.documentElement;
                 imageParent.replaceChild(svgElement, svgTag);
             });
 

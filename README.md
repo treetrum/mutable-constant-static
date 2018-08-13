@@ -1,26 +1,23 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# Mutable Constant - Gatsby Static
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+### Building & Running
 
-## Install
+To run the dev server:
 
-Make sure that you have the Gatsby CLI program installed:
 ```sh
-npm install --global gatsby-cli
+yarn start
 ```
 
-And run from your CLI:
+To build for production:
+
 ```sh
-gatsby new gatsby-example-site
+yarn run build
 ```
 
-Then you can run it by:
-```sh
-cd gatsby-example-site
-gatsby develop
-```
+### Deploying
 
-## Deploy
+This site is hosted on Netlify with automatic deployments on.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+To push to production, merge into `master` and do a push.
+
+Doing the same on the `develop` branch will deploy to `develop.mutableconstant.com`

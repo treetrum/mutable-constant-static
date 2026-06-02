@@ -2,7 +2,11 @@
 import { getCollection } from "astro:content";
 import DateLine from "../components/DateLine.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getPostExcerpt, getPostSlug, sortPostsByDateDesc } from "../utils/posts";
+import {
+  getPostExcerpt,
+  getPostSlug,
+  sortPostsByDateDesc,
+} from "../utils/posts";
 
 const posts = sortPostsByDateDesc(await getCollection("posts"));
 ---

@@ -8,7 +8,7 @@ const { date } = Astro.props;
 const formattedDate = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "long",
-  year: "numeric"
+  year: "numeric",
 }).format(date);
 ---
 

@@ -7,10 +7,10 @@ const posts = defineCollection({
     title: z.string(),
     slug: z.string(),
     date: z.coerce.date(),
-    status: z.string().optional()
-  })
+    status: z.string().optional(),
+  }),
 });
 
 export const collections = {
-  posts
+  posts,
 };

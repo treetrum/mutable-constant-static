@@ -3,7 +3,10 @@ import Helmet from 'react-helmet';
 
 import Header from '../components/header';
 
-import './scss/main.scss';
+import './scss/_normalize.css';
+import './scss/_typography.css';
+import './scss/_layout.css';
+import './scss/_syntax-highlighting.css';
 
 const Layout = ({ children, data }) => {
     const { siteMetadata: meta } = data.site;

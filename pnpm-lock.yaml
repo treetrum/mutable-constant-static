@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      babel-core:
+        specifier: ^6.26.3
+        version: 6.26.3
+      babel-loader:
+        specifier: ^6.4.1
+        version: 6.4.1(babel-core@6.26.3)(webpack@1.15.0)
       gatsby:
         specifier: ^1.9.277
         version: 1.9.279(caniuse-db@1.0.30001795)(typescript@6.0.3)

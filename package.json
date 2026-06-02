@@ -12,6 +12,7 @@
     "gatsby-remark-prismjs": "^2.0.5",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
+    "graphql": "0.11.7",
     "highlightjs": "^9.10.0",
     "moment": "^2.22.2",
     "node-fetch": "^2.2.0",

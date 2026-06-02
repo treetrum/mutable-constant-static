@@ -7,7 +7,7 @@ export function getPostSlug(post: CollectionEntry<"posts">) {
 
 export function sortPostsByDateDesc(posts: CollectionEntry<"posts">[]) {
   return [...posts].sort(
-    (first, second) => second.data.date.getTime() - first.data.date.getTime()
+    (first, second) => second.data.date.getTime() - first.data.date.getTime(),
   );
 }
 

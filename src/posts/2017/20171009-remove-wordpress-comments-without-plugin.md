@@ -1,17 +1,17 @@
 ---
 title: Remove WordPress comments without a plugin
-date: '2017-10-09 23:04:24'
+date: "2017-10-09 23:04:24"
 slug: remove-wordpress-comments-without-plugin
 status: publish
 ---
 
-I try my best to not use plugins whilst building Wordpress sites unless they are completely necessary. This has the added benefit of knowing exactly what is happening in the code of each website. For simple features, this is clearly the way to go. 
+I try my best to not use plugins whilst building Wordpress sites unless they are completely necessary. This has the added benefit of knowing exactly what is happening in the code of each website. For simple features, this is clearly the way to go.
 
-I have recently written a small snippet to disable comments across the board on a Wordpress site. It comes in at only 14 lines, which is significantly smaller than any plugin I could find that does the same thing. 
+I have recently written a small snippet to disable comments across the board on a Wordpress site. It comes in at only 14 lines, which is significantly smaller than any plugin I could find that does the same thing.
 
-It's worth noting that my snippet is very 'single' use oriented. All it does is disable comments for everything but the 'shop_order' post type (for WooCommerce). There are no options or customisations. However, for 95% of my needs, this will work. 
+It's worth noting that my snippet is very 'single' use oriented. All it does is disable comments for everything but the 'shop_order' post type (for WooCommerce). There are no options or customisations. However, for 95% of my needs, this will work.
 
-See the snippet below for the code: 
+See the snippet below for the code:
 
 ```php
 add_action('init', 'remove_comment_support', 100);

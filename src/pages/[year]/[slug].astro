@@ -15,11 +15,11 @@ export async function getStaticPaths() {
   return posts.map((post: CollectionEntry<"posts">) => ({
     params: {
       year: post.data.date.getFullYear().toString(),
-      slug: post.data.slug
+      slug: post.data.slug,
     },
     props: {
-      post
-    }
+      post,
+    },
   }));
 }
 

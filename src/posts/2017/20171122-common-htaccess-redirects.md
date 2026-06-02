@@ -1,6 +1,6 @@
 ---
 title: Common .htaccess Redirects
-date: '2017-11-22 04:55:05'
+date: "2017-11-22 04:55:05"
 slug: common-htaccess-redirects
 status: publish
 ---

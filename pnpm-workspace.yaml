@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+minimumReleaseAgeExclude:
+  - yaml@2.8.3
+  
+overrides:
+  yaml@>=2.0.0 <2.8.3: ^2.8.3

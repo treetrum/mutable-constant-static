@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import DateLine from "../components/DateLine.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPostExcerpt, getPostSlug, sortPostsByDateDesc } from "../utils/posts";
+
+const posts = sortPostsByDateDesc(await getCollection("posts"));
+---
+
+<BaseLayout>
+  <div class="page-content posts-list">
+    <div class="outer">
+      <div class="inner">
+        {
+          posts.map((post) => (
+            <article class="post-snippet">
+              <h3 class="title">
+                <a href={getPostSlug(post)}>{post.data.title}</a>
+              </h3>
+              <p class="snippet">{getPostExcerpt(post.body ?? "")}</p>
+              <DateLine date={post.data.date} />
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

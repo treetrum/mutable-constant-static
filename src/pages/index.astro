@@ -16,14 +16,17 @@ const posts = sortPostsByDateDesc(await getCollection("posts"));
     <div class="outer">
       <div class="inner">
         {
-          posts.map((post) => (
-            <article class="post-snippet">
-              <h3 class="title">
-                <a href={getPostSlug(post)}>{post.data.title}</a>
-              </h3>
-              <p class="snippet">{getPostExcerpt(post.body ?? "")}</p>
-              <DateLine date={post.data.date} />
-            </article>
+          posts.map((post, index) => (
+            <>
+              <article class="post-snippet">
+                <h3 class="title">
+                  <a href={getPostSlug(post)}>{post.data.title}</a>
+                </h3>
+                <p class="snippet">{getPostExcerpt(post.body ?? "")}</p>
+                <DateLine date={post.data.date} />
+              </article>
+              {index < posts.length - 1 && <hr class="post-separator" />}
+            </>
           ))
         }
       </div>

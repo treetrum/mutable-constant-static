@@ -1,0 +1,50 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import DateLine from "../../components/DateLine.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteMeta } from "../../config/site";
+import { getPostSlug } from "../../utils/posts";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post: CollectionEntry<"posts">) => ({
+    params: {
+      year: post.data.date.getFullYear().toString(),
+      slug: post.data.slug
+    },
+    props: {
+      post
+    }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const postUrl = new URL(getPostSlug(post), Astro.site).toString();
+const title = `${post.data.title} - ${siteMeta.title}`;
+---
+
+<BaseLayout title={title} description={siteMeta.description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={postUrl} />
+  </Fragment>
+  <div class="page-content">
+    <article>
+      <div class="outer">
+        <div class="inner">
+          <h2 class="post-title">{post.data.title}</h2>
+          <DateLine date={post.data.date} />
+          <div class="rte">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import Header from "../components/Header.astro";
+import { siteMeta } from "../config/site";
+
+import "../layouts/scss/_normalize.css";
+import "../layouts/scss/_typography.css";
+import "../layouts/scss/_layout.css";
+import "../layouts/scss/_syntax-highlighting.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${siteMeta.title} - ${siteMeta.subtitle}`,
+  description = siteMeta.description
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <slot name="head" />
+  </head>
+  <body>
+    <div class="site-container">
+      <Header siteTitle={siteMeta.title} subtitle={siteMeta.subtitle} />
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

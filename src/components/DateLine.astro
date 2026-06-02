@@ -1,0 +1,15 @@
+---
+interface Props {
+  date: Date;
+}
+
+const { date } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+}).format(date);
+---
+
+<p class="dateline">{formattedDate}</p>

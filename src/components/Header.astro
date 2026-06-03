@@ -1,4 +1,6 @@
 ---
+import Container from "./Container.astro";
+
 interface Props {
   siteTitle: string;
   subtitle: string;
@@ -8,8 +10,8 @@ const { siteTitle, subtitle } = Astro.props;
 ---
 
 <header class="navbar">
-  <div class="outer">
-    <div class="inner">
+  <Container>
+    <div class="nav-row">
       <div class="brand">
         <h1>
           <a href="/">{siteTitle}</a>
@@ -34,5 +36,66 @@ const { siteTitle, subtitle } = Astro.props;
         >
       </nav>
     </div>
-  </div>
+  </Container>
 </header>
+
+<style>
+  .navbar {
+    padding: 1.35rem 0;
+    background-color: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--color-line);
+
+    :global(h1) {
+      margin: 0;
+      font-size: 1.65rem;
+    }
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tagline {
+    font-family: var(--font-sans);
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.015em;
+    line-height: 1.4;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.92rem;
+    font-family: var(--font-sans);
+    letter-spacing: 0.015em;
+    white-space: nowrap;
+
+    @media (max-width: 640px) {
+      gap: 12px;
+    }
+
+    a {
+      color: var(--color-muted);
+
+      &:hover {
+        color: var(--color-text);
+      }
+    }
+  }
+</style>

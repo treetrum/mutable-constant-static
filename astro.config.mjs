@@ -4,6 +4,9 @@ export default defineConfig({
   site: "https://mutableconstant.com",
   publicDir: "static",
   markdown: {
-    syntaxHighlight: "prism",
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "github-light",
+    },
   },
 });

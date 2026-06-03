@@ -58,24 +58,3 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-.rte p {
-  margin: 1.5rem 0;
-  color: #1c1c1c;
-}
-
-.rte blockquote {
-  margin: 0;
-  padding: 0.75rem 1.25rem;
-  border-left: 3px solid #222222;
-  background-color: #f8f8f8;
-  border-radius: 0 var(--radius-medium) var(--radius-medium) 0;
-}
-
-.rte blockquote p {
-  margin: 0;
-  font-size: 1rem;
-}
-
-.rte a {
-  text-decoration: underline;
-}

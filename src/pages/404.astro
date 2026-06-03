@@ -1,14 +1,19 @@
 ---
+import Container from "../components/Container.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Not Found - Mutable Constant">
   <div class="page-content">
-    <div class="outer">
-      <div class="inner">
-        <h2>Not Found</h2>
-        <p>You just hit a route that does not exist... the sadness.</p>
-      </div>
-    </div>
+    <Container>
+      <h2>Not Found</h2>
+      <p>You just hit a route that does not exist... the sadness.</p>
+    </Container>
   </div>
 </BaseLayout>
+
+<style>
+  .page-content {
+    padding: 40px 0;
+  }
+</style>
